@@ -1,0 +1,80 @@
+ body{
+            margin:0px;
+            background-color:#F9F3E3;  
+    }
+
+    #bdy{
+    	margin-left: auto;
+	    margin-right: auto;
+	    margin-top: 20px;
+	    width: 400px;
+	    z-index: 1;
+    }
+
+    #boardcontainer{
+    	margin-left: auto;
+	    margin-right: auto;
+	    margin-top: 20px;
+	    width: 400px;
+	    z-index: 1;
+    }
+
+   	.btile{
+   		background-color: #000099;
+   	}
+   	.btile:hover { 
+	    background-color: #0000FF;
+	}
+
+   	.wtile{
+   		background-color: #EBEBFF;
+   	}
+   	.wtile:hover { 
+	    background-color: #F5F5FF;
+	}
+
+   	.rtile{
+   		background-color: #A30000;
+   	}
+   	.rtile:hover { 
+	    background-color: #CC0000;
+	}
+
+   	.row:before, .row:after {
+	    content:"";
+	    display: table ;
+	    clear:both;
+	}
+   	.boardtile {
+	    width: 50px;
+	    height: 50px;
+	    float: left;
+	}
+
+	.tileP{
+		border:2px solid black;
+	}
+
+	.tileSelected{
+		border:2px solid grey;
+	}
+	
+	#turn{
+
+	}
+
+	#score{
+
+	}
+
+	#info{
+	
+	}
+
+	.bscore{
+		color: blue;
+	}
+
+	.rscore{
+		color:red;
+	}
