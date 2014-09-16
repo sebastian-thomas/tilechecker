@@ -5,42 +5,17 @@
 
     #bdy{
     	margin-left: auto;
-	    margin-right: auto;
-	    margin-top: 20px;
-	    width: 400px;
+    	margin-right: auto;
+    	width: 251px;
 	    z-index: 1;
     }
 
     #boardcontainer{
+    	width: 250px;
     	margin-left: auto;
-	    margin-right: auto;
-	    margin-top: 20px;
-	    width: 400px;
-	    z-index: 1;
+    	margin-right: auto;
     }
-
-   	.btile{
-   		background-color: #000099;
-   	}
-   	.btile:hover { 
-	    background-color: #0000FF;
-	}
-
-   	.wtile{
-   		background-color: #EBEBFF;
-   	}
-   	.wtile:hover { 
-	    background-color: #F5F5FF;
-	}
-
-   	.rtile{
-   		background-color: #A30000;
-   	}
-   	.rtile:hover { 
-	    background-color: #CC0000;
-	}
-
-   	.row:before, .row:after {
+    .row:before, .row:after {
 	    content:"";
 	    display: table ;
 	    clear:both;
@@ -50,6 +25,45 @@
 	    height: 50px;
 	    float: left;
 	}
+   	.btile{
+   		-webkit-animation: wtob 1s;
+   		background-color: #000099;
+   	}
+   	@-webkit-keyframes wtob {
+	    from {background-color: white;}
+	    to {background-color: #000099;}
+	}
+
+   	.btile:hover { 
+	    background-color: #0000FF;
+	}
+
+   	.wtile{
+   		-webkit-animation: tow 1s;
+   		background-color: #EBEBFF;
+   	}
+   	.wtile:hover { 
+	    background-color: #F5F5FF;
+	}
+	@-webkit-keyframes tow {
+	    from {}
+	    to {background-color: #EBEBFF;}
+	}
+
+   	.rtile{
+   		-webkit-animation: wtor 1s;
+   		background-color: #A30000;
+   	}
+   	
+   	.rtile:hover { 
+	    background-color: #CC0000;
+	}
+	@-webkit-keyframes wtor {
+	    from {background-color: white;}
+	    to {background-color: #CC0000;}
+	}
+
+   
 
 	.tileP{
 		border:2px solid black;
@@ -64,11 +78,13 @@
 	}
 
 	#score{
-
+       float: right;
 	}
 
-	#info{
-	
+	#info {
+		height: 50px;
+		background-color: grey;
+		width: 217px;
 	}
 
 	.bscore{

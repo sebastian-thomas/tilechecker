@@ -23,10 +23,13 @@
  }
 
  function setup() {
-     $('#bdy').append('<div id="boardcontainer"></div>' + '<div id = "info">' + '<div id = "turn"></div>' + '<div id = "score"></div>' + '</div>');
+ 	$('#bdy').html("");
+     $('#bdy').append('<div id = "info">' + '<div id = "turn"></div>' + '<div id = "score"></div>' + '</div>'+'<div id="boardcontainer"></div>' );
  }
 
  function initBoard() {
+ 	thtml = "";
+ 	ind = -1;
      for (i = 0; i < totalRows; i++) {
          thtml = thtml + "<div class=\"row\">";
          for (j = 0; j < cols; j++) {
@@ -46,6 +49,7 @@
          thtml = thtml + "</div>";
      }
      $('#boardcontainer').append(thtml);
+
  }
 
 
@@ -96,6 +100,8 @@
 
 
  function listenClicks() {
+
+ 	
      $('.boardtile').click(function () {
          var tturn = false;
      	//console.log("click");
@@ -206,9 +212,15 @@
      resetSelectedCell();
 
      if (score.blue == 0) {
-         $('#boardcontainer').html("GameOVer<br> Won by Red");
+         $('#boardcontainer').html("Game Over<br> Won by Red<br><div id=\"restart\">Restart</div>");
+          $('#restart').click(function(){
+	 	 	beginGame();
+	     });
      } else if (score.red == 0) {
-         $('#boardcontainer').html("GameOVer<br> Won by blue");
+         $('#boardcontainer').html("Game Over<br> Won by blue<br><div id=\"restart\">Restart</div>");
+          $('#restart').click(function(){
+	 	 	beginGame();
+	     });
      }
 
      if (turn == -1) {
@@ -217,7 +229,7 @@
          $('#turn').html('<p style="color:red">Red</p>');
      }
 
-     $('#score').html('<div class="scorewrapper"><p class="bscore">' + score.blue + '</p></div>' + '<div class="scorewrapper"><p class="rscore">' + score.red + '</p></div>');
+     $('#score').html('<span class="scorewrapper bscore">' + score.blue + '</span>' + '<span class="scorewrapper rscore">' + score.red + '</span>');
      for (var k = 0; k < totalRows * cols; ++k) {
          if ($('#' + k).hasClass("tileSelected")) {
              $('#' + k).removeClass('tileSelected');
@@ -227,7 +239,7 @@
 
      console.log(board);
 
-    if(turn == comp){
+    if(turn == comp && playAi){
     	p("Waiting for comp");
     	setTimeout(aiplay,2000);
      	//aiplay();
